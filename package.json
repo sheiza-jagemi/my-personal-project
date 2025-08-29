@@ -1,0 +1,11 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Full-stack portfolio website with JavaScript frontend and Python backend",
+  "main": "app.py",
+  "scripts": {
+    "start": "python app.py",
+    "dev": "python app.py",
+    "install-python": "pip install -r requirements.txt"
+  }
+}
