@@ -1,0 +1,158 @@
+/* ===== REUSABLE COMPONENTS ===== */
+
+/* Button Components */
+.btn-base {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary { background: linear-gradient(135deg, #ff004f, #ff6b9d); color: white; }
+.btn-secondary { background: transparent; color: #ffffff; border: 2px solid #ff004f; }
+.btn-outline { background: transparent; color: #ffffff; border: 1px solid #333; }
+
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+.btn-secondary:hover { background: #ff004f; color: white; }
+.btn-outline:hover { background: #262626; border-color: #ff004f; }
+
+/* Card Components */
+.card-base {
+    background: #262626;
+    border-radius: 20px;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-hover:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.card-gradient::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(135deg, #ff004f, #ff6b9d);
+    transition: all 0.3s ease;
+}
+
+.card-gradient:hover::before { left: 0; }
+
+/* Section Components */
+.section-base { padding: 100px 0; }
+.section-dark { background: #080808; }
+.section-light { background: #1a1a1a; }
+
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    background: linear-gradient(135deg, #ff004f, #ff6b9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #ababab;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* Grid Components */
+.grid-auto { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+
+/* Icon Components */
+.icon-primary { color: #ff004f; }
+.icon-large { font-size: 3rem; margin-bottom: 20px; display: block; }
+.icon-medium { font-size: 2rem; }
+.icon-small { font-size: 1.2rem; }
+
+/* Tag Components */
+.tag-base {
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.tag-primary { background: #ff004f; color: white; }
+.tag-secondary { background: #333; color: #ababab; }
+
+/* Animation Components */
+.fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+
+.slide-left { opacity: 0; transform: translateX(-50px); transition: all 0.6s ease; }
+.slide-left.visible { opacity: 1; transform: translateX(0); }
+
+.slide-right { opacity: 0; transform: translateX(50px); transition: all 0.6s ease; }
+.slide-right.visible { opacity: 1; transform: translateX(0); }
+
+.scale-in { opacity: 0; transform: scale(0.8); transition: all 0.6s ease; }
+.scale-in.visible { opacity: 1; transform: scale(1); }
+
+/* Form Components */
+.form-group { position: relative; margin-bottom: 20px; }
+
+.form-input {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    background: #080808;
+    color: #ffffff;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #ff004f;
+    box-shadow: 0 0 0 3px rgba(255, 0, 79, 0.1);
+}
+
+.form-error {
+    color: #ef4444;
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+    .grid-auto, .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }
+    .section-title { font-size: 2rem; }
+    .btn-base { padding: 10px 20px; font-size: 0.9rem; }
+}
+
+@media (max-width: 480px) {
+    .section-title { font-size: 1.8rem; }
+    .icon-large { font-size: 2.5rem; }
+}

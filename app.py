@@ -18,36 +18,38 @@ def init_db():
     # Projects table
     c.execute('''CREATE TABLE IF NOT EXISTS projects
                  (id INTEGER PRIMARY KEY, title TEXT, description TEXT, 
-                  image TEXT, tech_stack TEXT, github_link TEXT, live_link TEXT)''')
+                  image TEXT, tech_stack TEXT, github_link TEXT, live_link TEXT, category TEXT)''')
     
     # Messages table
     c.execute('''CREATE TABLE IF NOT EXISTS messages
                  (id INTEGER PRIMARY KEY, name TEXT, email TEXT, 
                   message TEXT, timestamp TEXT)''')
     
-    # Insert sample projects
+    # Clear existing projects and insert only the 6 specified projects
+    c.execute('DELETE FROM projects')
+    
     projects = [
         ('E-Commerce Platform', 'Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard. Built with modern technologies for scalability and performance.', 
          'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop', 
-         'React,Node.js,MongoDB,Stripe,Redux,Express', 'https://github.com/sheiza/ecommerce-platform', 'https://ecommerce-demo.sheiza.dev'),
+         'React,Node.js,MongoDB,Stripe,Redux,Express', 'https://github.com/sheiza/ecommerce-platform', 'https://ecommerce-demo.sheiza.dev', 'web'),
         ('Task Management System', 'Collaborative project management tool with real-time updates, team collaboration features, and advanced reporting capabilities.', 
          'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop', 
-         'Vue.js,Python,PostgreSQL,Socket.io,Docker', 'https://github.com/sheiza/task-manager', 'https://tasks.sheiza.dev'),
+         'Vue.js,Python,PostgreSQL,Socket.io,Docker', 'https://github.com/sheiza/task-manager', 'https://tasks.sheiza.dev', 'web'),
         ('Social Media Analytics', 'Comprehensive analytics dashboard for social media platforms with data visualization and automated reporting.', 
          'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop', 
-         'React,Django,MySQL,Chart.js,Redis', 'https://github.com/sheiza/social-analytics', 'https://analytics.sheiza.dev'),
+         'React,Django,MySQL,Chart.js,Redis', 'https://github.com/sheiza/social-analytics', 'https://analytics.sheiza.dev', 'web'),
         ('Weather Forecast App', 'Modern weather application with location-based forecasts, interactive maps, and weather alerts.', 
          'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop', 
-         'JavaScript,Python,Flask,OpenWeather API', 'https://github.com/sheiza/weather-app', 'https://weather.sheiza.dev'),
+         'JavaScript,Python,Flask,OpenWeather API', 'https://github.com/sheiza/weather-app', 'https://weather.sheiza.dev', 'mobile'),
         ('Portfolio Website', 'This very portfolio website showcasing full-stack development skills with modern design and functionality.', 
          'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop', 
-         'JavaScript,Python,Flask,SQLite,HTML5,CSS3', 'https://github.com/sheiza/portfolio', 'https://sheiza.dev'),
+         'JavaScript,Python,Flask,SQLite,HTML5,CSS3', 'https://github.com/sheiza/portfolio', 'https://sheiza.dev', 'web'),
         ('Restaurant Booking API', 'RESTful API for restaurant reservation system with authentication, booking management, and notifications.', 
          'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop', 
-         'Python,FastAPI,PostgreSQL,JWT,Celery', 'https://github.com/sheiza/restaurant-api', 'https://api.restaurant.sheiza.dev')
+         'Python,FastAPI,PostgreSQL,JWT,Celery', 'https://github.com/sheiza/restaurant-api', 'https://api.restaurant.sheiza.dev', 'api')
     ]
     
-    c.executemany('INSERT OR IGNORE INTO projects (title, description, image, tech_stack, github_link, live_link) VALUES (?,?,?,?,?,?)', projects)
+    c.executemany('INSERT INTO projects (title, description, image, tech_stack, github_link, live_link, category) VALUES (?,?,?,?,?,?,?)', projects)
     conn.commit()
     conn.close()
 
@@ -69,7 +71,8 @@ def get_projects():
             'image': row[3],
             'tech_stack': row[4].split(','),
             'github_link': row[5],
-            'live_link': row[6]
+            'live_link': row[6],
+            'category': row[7] if len(row) > 7 else 'web'
         })
     conn.close()
     return jsonify(projects)
@@ -215,4 +218,4 @@ def get_testimonials():
 
 if __name__ == '__main__':
     init_db()
-    app.run(debug=True, port=5000)
+    app.run(debug=True, port=5001)

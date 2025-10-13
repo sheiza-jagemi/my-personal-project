@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{% block description %}Professional portfolio website{% endblock %}">
+    <meta name="keywords" content="{% block keywords %}portfolio, web development, full-stack{% endblock %}">
+    <meta name="author" content="{% block author %}Portfolio Owner{% endblock %}">
+    
+    <title>{% block title %}Portfolio{% endblock %}</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="loader"></div>
+    </div>
+    
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#" class="logo">{% block logo %}Portfolio{% endblock %}</a>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-btn">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <i class="fas fa-bars" id="menuIcon"></i>
+            </div>
+            <ul id="navMenu">
+                <i class="fas fa-times" id="closeMenu"></i>
+                {% block navigation %}
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+                {% endblock %}
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            {% block footer %}
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>{% block footer_title %}Portfolio{% endblock %}</h3>
+                    <p>{% block footer_description %}Professional portfolio website{% endblock %}</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> {% block copyright %}Portfolio Owner{% endblock %}. All rights reserved.</p>
+            </div>
+            {% endblock %}
+        </div>
+    </footer>
+    
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+    
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    {% block extra_js %}{% endblock %}
+</body>
+</html>

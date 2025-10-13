@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/interests.css') }}">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -49,6 +50,9 @@
                 </ul>
             </nav>
             <div class="header-text">
+                <div class="hero-profile">
+                    <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Sheiza Ysl - Full-Stack Developer" class="hero-image">
+                </div>
                 <p class="greeting">Hello, I'm</p>
                 <h1>Sheiza <span>Ysl</span></h1>
                 <h2 class="typing-text">Full-Stack Developer</h2>
@@ -83,7 +87,7 @@
             <div class="row">
                 <div class="about-col-1">
                     <div class="profile-card">
-                        <img src="images/🫶🏾.jpeg" alt="Sheiza Ysl - Full-Stack Developer">
+                        <img src="{{ url_for('static', filename='images/profile.jpg') }}" alt="Sheiza Ysl - Full-Stack Developer">
                         <div class="profile-info">
                             <h3>Sheiza Ysl</h3>
                             <p>Full-Stack Developer</p>
@@ -97,9 +101,9 @@
                 <div class="about-col-2">
                     <div class="about-content">
                         <h3>Hello! I'm Sheiza Ysl</h3>
-                        <p>I'm a passionate <strong>Full-Stack Developer</strong> with 3+ years of experience creating innovative web applications. I specialize in building scalable solutions using modern technologies like <strong>JavaScript, Python, React, and Flask</strong>.</p>
+                        <p>I'm a passionate <strong>Full-Stack Developer</strong> and recent graduate from <strong>Moringa School</strong>, where I specialized in modern web development technologies. I build scalable solutions using <strong>JavaScript, Python, React, and Flask</strong>.</p>
                         
-                        <p>My journey in tech started with a curiosity about how websites work, and it has evolved into a deep passion for creating digital experiences that make a difference. I love the challenge of turning complex problems into simple, beautiful solutions.</p>
+                        <p>My journey in tech started with a curiosity about how websites work, and through intensive training at Moringa School, it has evolved into a deep passion for creating digital experiences that make a difference. I love the challenge of turning complex problems into simple, beautiful solutions.</p>
                         
                         <div class="stats">
                             <div class="stat-item">
@@ -119,10 +123,56 @@
                         <div class="interests">
                             <h4>When I'm not coding:</h4>
                             <div class="interest-tags">
-                                <span><i class="fas fa-camera"></i> Photography</span>
-                                <span><i class="fas fa-book"></i> Reading Tech Blogs</span>
-                                <span><i class="fas fa-music"></i> Music Production</span>
-                                <span><i class="fas fa-hiking"></i> Hiking</span>
+                                <span class="interest-item" data-interest="photography">
+                                    <i class="fas fa-camera"></i> Photography
+                                </span>
+                                <span class="interest-item" data-interest="reading">
+                                    <i class="fas fa-book"></i> Reading Tech Blogs
+                                </span>
+                                <span class="interest-item" data-interest="music">
+                                    <i class="fas fa-music"></i> Music & Entertainment
+                                </span>
+                                <span class="interest-item" data-interest="fitness">
+                                    <i class="fas fa-dumbbell"></i> Fitness & Wellness
+                                </span>
+                                <span class="interest-item" data-interest="travel">
+                                    <i class="fas fa-plane"></i> Travel & Adventure
+                                </span>
+                                <span class="interest-item" data-interest="gaming">
+                                    <i class="fas fa-gamepad"></i> Gaming
+                                </span>
+                            </div>
+                            
+                            <div class="interest-details" id="interestDetails">
+                                <div class="interest-content" id="photography" style="display: none;">
+                                    <h5><i class="fas fa-camera"></i> Photography Enthusiast</h5>
+                                    <p>I love capturing moments and exploring different perspectives through my lens. From street photography to nature shots, I enjoy the creative process of visual storytelling.</p>
+                                </div>
+                                
+                                <div class="interest-content" id="reading" style="display: none;">
+                                    <h5><i class="fas fa-book"></i> Continuous Learning</h5>
+                                    <p>Always staying updated with the latest tech trends, reading development blogs, and exploring new programming concepts. Knowledge is power in the tech world!</p>
+                                </div>
+                                
+                                <div class="interest-content" id="music" style="display: none;">
+                                    <h5><i class="fas fa-music"></i> Music & Entertainment</h5>
+                                    <p>Music fuels my creativity! I enjoy discovering new artists, attending live concerts, and sometimes creating playlists that match my coding mood.</p>
+                                </div>
+                                
+                                <div class="interest-content" id="fitness" style="display: none;">
+                                    <h5><i class="fas fa-dumbbell"></i> Fitness & Wellness</h5>
+                                    <p>Staying active keeps my mind sharp for coding. Whether it's gym workouts, morning runs, or yoga sessions, physical wellness is key to mental clarity.</p>
+                                </div>
+                                
+                                <div class="interest-content" id="travel" style="display: none;">
+                                    <h5><i class="fas fa-plane"></i> Travel & Adventure</h5>
+                                    <p>Exploring new places and cultures inspires my creativity. I love discovering how technology is used differently around the world and meeting fellow developers.</p>
+                                </div>
+                                
+                                <div class="interest-content" id="gaming" style="display: none;">
+                                    <h5><i class="fas fa-gamepad"></i> Gaming</h5>
+                                    <p>Gaming helps me unwind and also inspires my development work. I'm fascinated by game mechanics, UI/UX design in games, and sometimes work on small game projects.</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -214,14 +264,16 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Computer Science Degree</h3>
-                        <h4>University of Nairobi</h4>
-                        <span class="timeline-date">2018 - 2021</span>
-                        <p>Bachelor's degree in Computer Science with focus on software engineering and web technologies. Graduated with First Class Honors.</p>
+                        <h3>Software Engineering Graduate</h3>
+                        <h4>Moringa School</h4>
+                        <span class="timeline-date">2023 - 2024</span>
+                        <p>Intensive software engineering bootcamp focused on full-stack web development, modern programming languages, and industry best practices. Graduated with expertise in building scalable web applications.</p>
                         <div class="timeline-skills">
-                            <span>Data Structures</span>
-                            <span>Algorithms</span>
-                            <span>Software Engineering</span>
+                            <span>Full-Stack Development</span>
+                            <span>JavaScript</span>
+                            <span>Python</span>
+                            <span>React</span>
+                            <span>Flask</span>
                             <span>Database Design</span>
                         </div>
                     </div>
@@ -474,6 +526,7 @@
      </button>
      
     <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/api.js') }}"></script>
     
 </body>
 </html>
