@@ -18,8 +18,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/interests.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}?v=3">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/interests.css') }}?v=3">
 </head>
 <body>
     <!-- Loading Screen -->
@@ -45,7 +45,6 @@
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
                     <li><a href="#experience">Experience</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -60,15 +59,10 @@
                 <div class="cta-buttons">
                     <a href="#portfolio" class="btn primary-btn">View My Work</a>
                     <a href="#contact" class="btn secondary-btn">Get In Touch</a>
-                    <a href="/static/resume.pdf" class="btn outline-btn" download>
-                        <i class="fas fa-download"></i> Download CV
-                    </a>
                 </div>
                 <div class="social-links">
-                    <a href="https://github.com/sheiza" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://linkedin.com/in/sheiza" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://www.instagram.com/typeshiiiii40?igsh=MWE1YTZ2cnAzYzE1aw==" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://twitter.com/sheiza" target="_blank"><i class="fab fa-twitter"></i></a>
+                    <a href="https://github.com/sheiza-jagemi" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.instagram.com/typeshiiiii40?igsh=MWE1YTZ2cnAzYzE1aw==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -101,22 +95,22 @@
                 <div class="about-col-2">
                     <div class="about-content">
                         <h3>Hello! I'm Sheiza Ysl</h3>
-                        <p>I'm a passionate <strong>Full-Stack Developer</strong> and recent graduate from <strong>Moringa School</strong>, where I specialized in modern web development technologies. I build scalable solutions using <strong>JavaScript, Python, React, and Flask</strong>.</p>
+                        <p>I'm a passionate <strong>Full-Stack Developer</strong> and current student at <strong>Moringa School</strong>, where I'm specializing in modern web development technologies. I build scalable solutions using <strong>JavaScript, Python, React, and Flask</strong>.</p>
                         
                         <p>My journey in tech started with a curiosity about how websites work, and through intensive training at Moringa School, it has evolved into a deep passion for creating digital experiences that make a difference. I love the challenge of turning complex problems into simple, beautiful solutions.</p>
                         
                         <div class="stats">
                             <div class="stat-item">
-                                <h4>50+</h4>
+                                <h4 class="counter" data-target="8">0</h4>
                                 <p>Projects Completed</p>
                             </div>
                             <div class="stat-item">
-                                <h4>3+</h4>
-                                <p>Years Experience</p>
+                                <h4 class="counter" data-target="1">0</h4>
+                                <p>Years Learning</p>
                             </div>
                             <div class="stat-item">
-                                <h4>25+</h4>
-                                <p>Happy Clients</p>
+                                <h4 class="counter" data-target="5">0</h4>
+                                <p>Technologies Mastered</p>
                             </div>
                         </div>
                         
@@ -197,25 +191,46 @@
     <!-- ----- services----- -->
      <div id="services">
         <div class="container">
-            <h1 class="sub-title">My Services</h1>
+            <div class="section-header">
+                <h2 class="section-title">What I Do</h2>
+                <p class="section-subtitle">Specialized services I offer to bring your ideas to life</p>
+            </div>
             <div class="services-list">
                 <div>
-                    <i class="fa-solid fa-code"></i>
-                    <h2>Web Design</h2>
-                    <p>Creating responsive and visually appealing websites that provide optimal user experience across all devices.</p>
-                    <a href="#">Learn more</a>
+                    <i class="fa-solid fa-laptop-code"></i>
+                    <h2>Web Development</h2>
+                    <p>Building responsive, high-performance websites using modern frameworks like React, Vue.js, and Flask. From landing pages to complex web applications, I create solutions that work seamlessly across all devices.</p>
+                    <a href="#portfolio">View Projects</a>
                 </div>
                 <div>
-                    <i class="fa-solid fa-crop-simple"></i>
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <h2>Mobile Development</h2>
+                    <p>Developing cross-platform mobile applications with React Native and Flutter. Creating intuitive mobile experiences that engage users and deliver exceptional performance on iOS and Android.</p>
+                    <a href="#portfolio">View Projects</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-server"></i>
+                    <h2>Backend Development</h2>
+                    <p>Designing and implementing robust RESTful APIs and server-side logic using Python Flask, Django, and Node.js. Building scalable backend systems with secure authentication and efficient database management.</p>
+                    <a href="#portfolio">View Projects</a>
+                </div>
+                <div>
+                    <i class="fa-solid fa-database"></i>
+                    <h2>Database Design</h2>
+                    <p>Creating efficient database architectures with PostgreSQL, MongoDB, and MySQL. Optimizing queries, ensuring data integrity, and implementing proper indexing for maximum performance.</p>
+                    <a href="#contact">Get Started</a>
+                </div>
+                <div>
+                    <i class="fa-brands fa-figma"></i>
                     <h2>UI/UX Design</h2>
-                    <p>Designing intuitive interfaces with seamless user journeys focused on solving real user problems.</p>
-                    <a href="#">Learn more</a>
+                    <p>Crafting user-centered designs with Figma and Adobe XD. Creating wireframes, prototypes, and design systems that prioritize usability and deliver delightful user experiences.</p>
+                    <a href="#contact">Get Started</a>
                 </div>
                 <div>
-                    <i class="fa-brands fa-app-store"></i>
-                    <h2>App Design</h2>
-                    <p>Crafting engaging mobile experiences with attention to platform guidelines and user expectations.</p>
-                    <a href="#">Learn more</a>
+                    <i class="fa-solid fa-code-branch"></i>
+                    <h2>Version Control & DevOps</h2>
+                    <p>Managing code repositories with Git and GitHub, implementing CI/CD pipelines, and deploying applications to cloud platforms like AWS, Heroku, and Vercel for seamless delivery.</p>
+                    <a href="#contact">Get Started</a>
                 </div>
             </div>
         </div>
@@ -232,42 +247,10 @@
                 <div class="timeline-item">
                     <div class="timeline-dot"></div>
                     <div class="timeline-content">
-                        <h3>Full-Stack Developer</h3>
-                        <h4>Tech Innovations Ltd</h4>
-                        <span class="timeline-date">2022 - Present</span>
-                        <p>Leading development of web applications using React, Node.js, and Python. Implemented CI/CD pipelines and improved application performance by 40%.</p>
-                        <div class="timeline-skills">
-                            <span>React</span>
-                            <span>Python</span>
-                            <span>AWS</span>
-                            <span>Docker</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Junior Web Developer</h3>
-                        <h4>Digital Solutions Kenya</h4>
-                        <span class="timeline-date">2021 - 2022</span>
-                        <p>Developed responsive websites and web applications. Collaborated with design teams to implement pixel-perfect UI components.</p>
-                        <div class="timeline-skills">
-                            <span>JavaScript</span>
-                            <span>PHP</span>
-                            <span>MySQL</span>
-                            <span>Bootstrap</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item">
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-content">
-                        <h3>Software Engineering Graduate</h3>
+                        <h3>Software Engineering Student</h3>
                         <h4>Moringa School</h4>
-                        <span class="timeline-date">2023 - 2024</span>
-                        <p>Intensive software engineering bootcamp focused on full-stack web development, modern programming languages, and industry best practices. Graduated with expertise in building scalable web applications.</p>
+                        <span class="timeline-date">2024 - 2025</span>
+                        <p>Intensive software engineering bootcamp focused on full-stack web development, modern programming languages, and industry best practices. Currently building scalable web applications and learning industry-standard tools.</p>
                         <div class="timeline-skills">
                             <span>Full-Stack Development</span>
                             <span>JavaScript</span>
@@ -302,87 +285,13 @@
             </div>
             
             <div class="portfolio-cta">
-                <p>Interested in seeing more of my work?</p>
-                <a href="https://github.com/sheiza" class="btn primary-btn" target="_blank">
-                    <i class="fab fa-github"></i> View All Projects on GitHub
+                <p>Want to see more of my work?</p>
+                <a href="https://github.com/sheiza-jagemi" class="btn primary-btn" target="_blank">
+                    <i class="fab fa-github"></i> Visit My GitHub
                 </a>
             </div>
          </div>
       </div>
-    
-    <!-- -----testimonials----- -->
-    <div id="testimonials">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">What People Say</h2>
-                <p class="section-subtitle">Testimonials from clients and colleagues</p>
-            </div>
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left"></i>
-                        <p>"Sheiza delivered an exceptional web application that exceeded our expectations. Her attention to detail and technical expertise made the entire process smooth and professional."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="John Doe">
-                        <div class="author-info">
-                            <h4>John Doe</h4>
-                            <p>CEO, Tech Startup</p>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left"></i>
-                        <p>"Working with Sheiza was a game-changer for our project. She brought innovative solutions and delivered high-quality code on time. Highly recommended!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=100&h=100&fit=crop&crop=face" alt="Sarah Johnson">
-                        <div class="author-info">
-                            <h4>Sarah Johnson</h4>
-                            <p>Product Manager, Digital Agency</p>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <i class="fas fa-quote-left"></i>
-                        <p>"Sheiza's full-stack development skills are impressive. She built our entire platform from scratch and it's been running flawlessly. Great communication throughout!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face" alt="Michael Chen">
-                        <div class="author-info">
-                            <h4>Michael Chen</h4>
-                            <p>Founder, E-commerce Platform</p>
-                            <div class="rating">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     
     <!-- -----contact------ -->
      <div id="contact">
@@ -399,8 +308,8 @@
                             <i class="fas fa-envelope"></i>
                         </div>
                         <h3>Email Me</h3>
-                        <p>sheizajagemi1@gmail.com</p>
-                        <a href="mailto:sheizajagemi1@gmail.com" class="contact-link">Send Email</a>
+                        <p>ysljagemi1@gmail.com</p>
+                        <a href="mailto:ysljagemi1@gmail.com" class="contact-link">Send Email</a>
                     </div>
                     
                     <div class="contact-card">
@@ -408,8 +317,8 @@
                             <i class="fas fa-phone"></i>
                         </div>
                         <h3>Call Me</h3>
-                        <p>+254 116 101 875</p>
-                        <a href="tel:+254116101875" class="contact-link">Call Now</a>
+                        <p>+254 708 427 120</p>
+                        <a href="tel:+254708427120" class="contact-link">Call Now</a>
                     </div>
                     
                     <div class="contact-card">
@@ -424,10 +333,8 @@
                     <div class="contact-social">
                         <h3>Follow Me</h3>
                         <div class="social-links">
-                            <a href="https://github.com/sheiza" target="_blank"><i class="fab fa-github"></i></a>
-                            <a href="https://linkedin.com/in/sheiza" target="_blank"><i class="fab fa-linkedin"></i></a>
-                            <a href="https://www.instagram.com/typeshiiiii40?igsh=MWE1YTZ2cnAzYzE1aw==" target="_blank"><i class="fab fa-instagram"></i></a>
-                            <a href="https://twitter.com/sheiza" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a href="https://github.com/sheiza-jagemi" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                            <a href="https://www.instagram.com/typeshiiiii40?igsh=MWE1YTZ2cnAzYzE1aw==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
                 </div>
@@ -471,10 +378,8 @@
                      <h3>Sheiza Ysl</h3>
                      <p>Full-Stack Developer passionate about creating innovative web solutions that make a difference.</p>
                      <div class="footer-social">
-                         <a href="https://github.com/sheiza" target="_blank"><i class="fab fa-github"></i></a>
-                         <a href="https://linkedin.com/in/sheiza" target="_blank"><i class="fab fa-linkedin"></i></a>
-                         <a href="https://www.instagram.com/typeshiiiii40?igsh=MWE1YTZ2cnAzYzE1aw==" target="_blank"><i class="fab fa-instagram"></i></a>
-                         <a href="https://twitter.com/sheiza" target="_blank"><i class="fab fa-twitter"></i></a>
+                         <a href="https://github.com/sheiza-jagemi" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                         <a href="https://www.instagram.com/typeshiiiii40?igsh=MWE1YTZ2cnAzYzE1aw==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
                      </div>
                  </div>
                  
@@ -501,8 +406,8 @@
                  <div class="footer-section">
                      <h4>Get In Touch</h4>
                      <div class="footer-contact">
-                         <p><i class="fas fa-envelope"></i> sheizajagemi1@gmail.com</p>
-                         <p><i class="fas fa-phone"></i> +254 116 101 875</p>
+                         <p><i class="fas fa-envelope"></i> ysljagemi1@gmail.com</p>
+                         <p><i class="fas fa-phone"></i> +254 708 427 120</p>
                          <p><i class="fas fa-map-marker-alt"></i> Nairobi, Kenya</p>
                      </div>
                  </div>
@@ -525,8 +430,8 @@
          <i class="fas fa-chevron-up"></i>
      </button>
      
-    <script src="{{ url_for('static', filename='js/index.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/api.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/index.js') }}?v=4"></script>
+    <script src="{{ url_for('static', filename='js/api.js') }}?v=4"></script>
     
 </body>
 </html>

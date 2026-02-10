@@ -29,24 +29,24 @@ def init_db():
     c.execute('DELETE FROM projects')
     
     projects = [
-        ('E-Commerce Platform', 'Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard. Built with modern technologies for scalability and performance.', 
-         'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop', 
-         'React,Node.js,MongoDB,Stripe,Redux,Express', 'https://github.com/sheiza/ecommerce-platform', 'https://ecommerce-demo.sheiza.dev', 'web'),
-        ('Task Management System', 'Collaborative project management tool with real-time updates, team collaboration features, and advanced reporting capabilities.', 
-         'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop', 
-         'Vue.js,Python,PostgreSQL,Socket.io,Docker', 'https://github.com/sheiza/task-manager', 'https://tasks.sheiza.dev', 'web'),
-        ('Social Media Analytics', 'Comprehensive analytics dashboard for social media platforms with data visualization and automated reporting.', 
-         'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop', 
-         'React,Django,MySQL,Chart.js,Redis', 'https://github.com/sheiza/social-analytics', 'https://analytics.sheiza.dev', 'web'),
-        ('Weather Forecast App', 'Modern weather application with location-based forecasts, interactive maps, and weather alerts.', 
-         'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop', 
-         'JavaScript,Python,Flask,OpenWeather API', 'https://github.com/sheiza/weather-app', 'https://weather.sheiza.dev', 'mobile'),
-        ('Portfolio Website', 'This very portfolio website showcasing full-stack development skills with modern design and functionality.', 
+        ('Personal Portfolio Website', 'Modern, responsive portfolio website built with Flask and JavaScript. Features dynamic content loading, theme toggle, and contact form integration.', 
          'https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=400&fit=crop', 
-         'JavaScript,Python,Flask,SQLite,HTML5,CSS3', 'https://github.com/sheiza/portfolio', 'https://sheiza.dev', 'web'),
-        ('Restaurant Booking API', 'RESTful API for restaurant reservation system with authentication, booking management, and notifications.', 
+         'JavaScript,Python,Flask,SQLite,HTML5,CSS3', 'https://github.com/sheiza-jagemi/portfolio', '#', 'web'),
+        ('Weather Dashboard', 'Real-time weather application with location-based forecasts and interactive UI. Integrates with weather APIs for accurate data.', 
+         'https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=600&h=400&fit=crop', 
+         'JavaScript,HTML5,CSS3,Weather API', 'https://github.com/sheiza-jagemi', '#', 'web'),
+        ('Task Manager App', 'Simple task management application with CRUD operations. Built to practice full-stack development skills.', 
+         'https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop', 
+         'Python,Flask,SQLite,JavaScript', 'https://github.com/sheiza-jagemi', '#', 'web'),
+        ('Restaurant Menu API', 'RESTful API for restaurant menu management with authentication and CRUD operations.', 
          'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop', 
-         'Python,FastAPI,PostgreSQL,JWT,Celery', 'https://github.com/sheiza/restaurant-api', 'https://api.restaurant.sheiza.dev', 'api')
+         'Python,Flask,PostgreSQL,JWT', 'https://github.com/sheiza-jagemi', '#', 'api'),
+        ('E-Commerce Landing Page', 'Responsive landing page design for an e-commerce platform with modern UI/UX principles.', 
+         'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop', 
+         'HTML5,CSS3,JavaScript,Bootstrap', 'https://github.com/sheiza-jagemi', '#', 'web'),
+        ('Blog Platform', 'Simple blogging platform with user authentication and post management features.', 
+         'https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&h=400&fit=crop', 
+         'Python,Django,PostgreSQL,Bootstrap', 'https://github.com/sheiza-jagemi', '#', 'web')
     ]
     
     c.executemany('INSERT INTO projects (title, description, image, tech_stack, github_link, live_link, category) VALUES (?,?,?,?,?,?,?)', projects)
@@ -153,20 +153,28 @@ def contact():
         return jsonify({'success': True, 'message': 'Message saved successfully!'})
 
 def send_email(name, email, message):
-    sender_email = os.getenv('EMAIL_USER', 'your-email@gmail.com')
-    sender_password = os.getenv('EMAIL_PASS', 'your-password')
+    sender_email = os.getenv('EMAIL_USER', 'ysljagemi1@gmail.com')
+    sender_password = os.getenv('EMAIL_PASS', '')
+    
+    if not sender_password:
+        raise Exception('Email password not configured')
     
     msg = MIMEMultipart()
     msg['From'] = sender_email
-    msg['To'] = 'sheizajagemi1@gmail.com'
-    msg['Subject'] = f'Portfolio Contact: {name}'
+    msg['To'] = 'ysljagemi1@gmail.com'
+    msg['Subject'] = f'Portfolio Contact from {name}'
     
     body = f"""
-    New contact form submission:
+    New contact form submission from your portfolio:
     
     Name: {name}
     Email: {email}
-    Message: {message}
+    
+    Message:
+    {message}
+    
+    ---
+    Reply to: {email}
     """
     
     msg.attach(MIMEText(body, 'plain'))
@@ -180,12 +188,9 @@ def send_email(name, email, message):
 @app.route('/api/stats')
 def get_stats():
     stats = {
-        'projects_completed': 50,
-        'years_experience': 3,
-        'happy_clients': 25,
-        'code_commits': 1200,
-        'technologies_used': 15,
-        'certifications': 5
+        'projects_completed': 8,
+        'years_experience': 1,
+        'happy_clients': 5
     }
     return jsonify(stats)
 

@@ -1,28 +1,28 @@
 /* ===== CSS VARIABLES ===== */
 :root {
-    --primary-color: #ff004f;
-    --secondary-color: #ff6b9d;
-    --accent-color: #00d4ff;
-    --bg-color: #080808;
-    --bg-secondary: #1a1a1a;
+    --primary-color: #0066ff;
+    --secondary-color: #00d4ff;
+    --accent-color: #6366f1;
+    --bg-color: #0a0a0a;
+    --bg-secondary: #111111;
     --text-color: #ffffff;
-    --text-secondary: #ababab;
-    --card-bg: #262626;
-    --border-color: #333;
+    --text-secondary: #a0a0a0;
+    --card-bg: #1a1a1a;
+    --border-color: #2a2a2a;
     --gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    --transition: all 0.3s ease;
+    --shadow: 0 4px 20px rgba(0, 102, 255, 0.15);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Light Theme Variables */
 [data-theme="light"] {
     --bg-color: #ffffff;
-    --bg-secondary: #f8f9fa;
-    --text-color: #2d3748;
-    --text-secondary: #718096;
+    --bg-secondary: #f5f7fa;
+    --text-color: #1a1a1a;
+    --text-secondary: #6b7280;
     --card-bg: #ffffff;
-    --border-color: #e2e8f0;
-    --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --border-color: #e5e7eb;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
 }
 
 /* ===== RESET & BASE ===== */
@@ -58,13 +58,24 @@ body {
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+    color: var(--text-color);
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
     background: var(--gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    border-radius: 2px;
 }
 
 .section-subtitle {
@@ -281,28 +292,18 @@ nav ul li a:hover::after {
 }
 
 .hero-image {
-    width: 150px;
-    height: 150px;
+    width: 180px;
+    height: 180px;
     border-radius: 50%;
     object-fit: cover;
-    border: 4px solid var(--primary-color);
-    box-shadow: 0 10px 30px rgba(255, 0, 79, 0.3);
-    animation: float 3s ease-in-out infinite;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 10px 40px rgba(0, 102, 255, 0.3);
     transition: var(--transition);
 }
 
 .hero-image:hover {
     transform: scale(1.05);
-    box-shadow: 0 15px 40px rgba(255, 0, 79, 0.4);
-}
-
-@keyframes float {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
+    box-shadow: 0 15px 50px rgba(0, 102, 255, 0.4);
 }
 
 .greeting {

@@ -14,11 +14,25 @@ async function loadSkills() {
         Object.values(skills).forEach(category => {
             skillsHTML += `
                 <div class="skill-category">
-                    <i class="${category.icon} skill-icon"></i>
-                    <h3>${category.title}</h3>
-                    <p>Professional experience with modern ${category.title.toLowerCase()} technologies</p>
-                    <div class="skill-tags">
-                        ${category.skills.map(skill => `<span class="tech-tag">${skill.name}</span>`).join('')}
+                    <div class="skill-header">
+                        <i class="${category.icon} skill-icon"></i>
+                        <h3>${category.title}</h3>
+                    </div>
+                    <div class="skill-items">
+                        ${category.skills.map(skill => `
+                            <div class="skill-item">
+                                <div class="skill-name">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>${skill.name}</span>
+                                </div>
+                                <div class="skill-level">
+                                    <div class="skill-bar">
+                                        <div class="skill-progress" style="width: ${skill.level}%"></div>
+                                    </div>
+                                    <span class="skill-percentage">${skill.level}%</span>
+                                </div>
+                            </div>
+                        `).join('')}
                     </div>
                 </div>
             `;

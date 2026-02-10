@@ -135,17 +135,21 @@ function animateCounters() {
     const counters = document.querySelectorAll('.counter');
     
     counters.forEach(counter => {
+        if (counter.classList.contains('counted')) return;
+        
         const target = parseInt(counter.getAttribute('data-target'));
-        const increment = target / 100;
+        const duration = 2000;
+        const increment = target / (duration / 16);
         let current = 0;
         
         const updateCounter = () => {
+            current += increment;
             if (current < target) {
-                current += increment;
-                counter.textContent = Math.ceil(current);
-                setTimeout(updateCounter, 20);
+                counter.textContent = Math.floor(current);
+                requestAnimationFrame(updateCounter);
             } else {
                 counter.textContent = target;
+                counter.classList.add('counted');
             }
         };
         
@@ -164,8 +168,8 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             entry.target.classList.add('fade-in');
             
-            // Animate counters when stats section is visible
-            if (entry.target.querySelector('.counter')) {
+            // Animate counters when about section is visible
+            if (entry.target.id === 'about') {
                 animateCounters();
             }
         }
@@ -173,7 +177,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 // Observe sections for animations
-document.querySelectorAll('section, .skill-category, .work, .timeline-item').forEach(el => {
+document.querySelectorAll('#about, #skills, #services, #portfolio, #experience, #testimonials, #contact').forEach(el => {
     observer.observe(el);
 });
 

@@ -1,81 +1,51 @@
-# 🔥 Full-Stack Portfolio Website (JavaScript + Python)
+# Sheiza Ysl - Portfolio Website
 
-A modern, responsive portfolio website with **JavaScript frontend** and **Python Flask backend**.
+A modern, responsive portfolio website showcasing my full-stack development skills and projects.
 
-## 🏗️ Architecture
+## 🚀 Technologies Used
 
-### Frontend (JavaScript)
-- **HTML5, CSS3, Vanilla JavaScript** - Clean, responsive UI
-- **Dynamic content loading** from Python API
-- **Interactive animations** and smooth scrolling
-- **Mobile-first responsive design**
-- **Contact form** with real-time validation
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Backend**: Python, Flask
+- **Database**: SQLite
+- **Deployment**: Render
 
-### Backend (Python Flask)
-- **RESTful API endpoints** for data management
-- **SQLite database** for projects and messages
-- **Email integration** for contact form
-- **CORS enabled** for frontend communication
+## 🌟 Features
 
-## 🚀 Setup Instructions
+- Responsive design
+- Dynamic content loading
+- Dark/Light theme toggle
+- Interactive animations
+- Contact form
+- Project showcase
+- Skills visualization
 
-### 1. Install Python Dependencies
+## 📦 Installation
+
 ```bash
+# Clone the repository
+git clone https://github.com/sheiza-jagemi/portfolio.git
+
+# Navigate to project directory
+cd portfolio
+
+# Install dependencies
 pip install -r requirements.txt
-```
 
-### 2. Configure Environment (Optional)
-Create `.env` file for email functionality:
-```
-EMAIL_USER=your-email@gmail.com
-EMAIL_PASS=your-app-password
-```
-
-### 3. Run the Application
-```bash
+# Run the application
 python app.py
 ```
 
-### 4. Access Your Portfolio
-Open: `http://localhost:5000`
+## 🌐 Live Demo
 
-## API Endpoints
+Visit: [Your Portfolio URL]
 
-- `GET /` - Serves the main portfolio page
-- `POST /api/contact` - Handles contact form submissions
-- `GET /api/portfolio` - Returns portfolio projects data
-- `GET /api/skills` - Returns skills and technologies data
+## 📧 Contact
 
-## Email Setup
+- Email: ysljagemi1@gmail.com
+- Phone: +254 708 427 120
+- GitHub: [@sheiza-jagemi](https://github.com/sheiza-jagemi)
+- Instagram: [@typeshiiiii40](https://www.instagram.com/typeshiiiii40)
 
-For Gmail, you need to:
-1. Enable 2-factor authentication
-2. Generate an app password
-3. Use the app password in the `.env` file
+## 📄 License
 
-## Technologies Used
-
-**Frontend:**
-- HTML5, CSS3, JavaScript
-- Font Awesome icons
-- Responsive design
-
-**Backend:**
-- Node.js
-- Express.js
-- Nodemailer
-- CORS
-- dotenv
-
-## Project Structure
-```
-portfolio-website/
-├── index.html          # Main HTML file
-├── style.css           # Styles
-├── index.js            # Frontend JavaScript
-├── server.js           # Backend server
-├── package.json        # Dependencies
-├── .env               # Environment variables
-├── .gitignore         # Git ignore rules
-└── images/            # Image assets
-```
+© 2025 Sheiza Ysl. All rights reserved.
